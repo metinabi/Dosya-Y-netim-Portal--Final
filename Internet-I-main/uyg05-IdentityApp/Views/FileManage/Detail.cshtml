@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+}
+
+@model FileManageModel
+
+<h3>Dosya Detayı</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <table class="table">
+            <tr>
+                <td><b>Dosya Adı</b></td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td><b>Dosya Açıklama</b></td>
+                <td>@Model.Description</td>
+            </tr>
+            <tr>
+                <td><b>Dosya Önizleme</b></td>
+                <td>
+                    <img src="~/Files/@Model.Link" width="400" height="400">
+                </td>
+                <td>
+                    <video width="400" height="300" controls>
+                        <source src="~/Files/@Model.Link" type="video/mp4">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Dosyayı İndir</b></td>
+                <td>
+                    <a href="~/Files/@Model.Link" download="@Model.Name">İndir</a>
+                </td>
+            </tr>
+        </table>
+
+        <a asp-action="Index" class="btn btn-outline-secondary">Geri Dön</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Düzenle</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Sil</a>
+
+    </div>
+</div>

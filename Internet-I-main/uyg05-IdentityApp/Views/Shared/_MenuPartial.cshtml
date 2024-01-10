@@ -1,0 +1,23 @@
+﻿<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a>
+    </li>
+
+   @if (User.Identity.IsAuthenticated)
+   {
+        if (User.IsInRole("Admin"))
+        {
+            <li>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin Paneli</a>
+            </li>
+        }
+        <li>
+            <a class="nav-link text-dark" asp-area="" asp-controller="FileManage" asp-action="IndexForUser">Dosyalar</a>
+        </li>
+   }
+
+   
+
+
+
+</ul>

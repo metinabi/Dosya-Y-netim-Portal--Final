@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "IndexForUser";
+}
+
+<h1>Dosyalar</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Dosya Adı</th>
+            <th scope="col">Dosya Açıklaması</th>
+            <th scope="col">Dosya Türü</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a asp-action="DisplayForUser" asp-route-id="@item.Id" class="btn btn-outline-info">Dosyayı Görüntüle</a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
